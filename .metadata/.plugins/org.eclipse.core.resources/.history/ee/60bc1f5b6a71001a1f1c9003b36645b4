@@ -1,0 +1,15 @@
+package com.tupple.institute.model;
+
+public class Student extends Person{
+	
+	int studnetId;
+
+	public int getStudnetId() {
+		return studnetId;
+	}
+
+	public void setStudnetId(int studnetId) {
+		this.studnetId = studnetId;
+	}
+
+}

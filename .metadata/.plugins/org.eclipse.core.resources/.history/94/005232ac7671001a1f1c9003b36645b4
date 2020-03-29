@@ -1,0 +1,5 @@
+package com.tupple.institute.model.student;
+
+public class CommonResponse {
+
+}

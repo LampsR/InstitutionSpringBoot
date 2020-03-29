@@ -1,0 +1,5 @@
+package com.tuppl.institute.model;
+
+public class GetEmployeeListResponse {
+
+}

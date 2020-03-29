@@ -1,0 +1,42 @@
+package com.tupple.institute.controller;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.util.CollectionUtils;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.institute.data.ClassroomDataSource;
+import com.institute.model.GetClassroomListResponse;
+import com.tuppl.institute.exception.ServiceException;
+
+
+
+@RestController
+public class ClassroomController {
+	
+	@Autowired
+	ClassroomDataSource classroomDataSource;
+	
+	private static final Logger LOGGER = LoggerFactory.getLogger(ClassroomController.class);
+
+	@RequestMapping("/classroom")
+	public ResponseEntity<GetClassroomListResponse> getList()
+	{
+		GetClassroomListResponse response = new GetClassroomListResponse();
+		response.setClassroomList(classroomDataSource.getClassRooomList());
+		
+		//if(null!= response.getStudentList() && !response.getStudentList().isEmpty()) {
+		if(!CollectionUtils.isEmpty(response.getClassroomList())) {
+			return new ResponseEntity <>(response, HttpStatus.OK);
+		}else {
+			
+			throw new ServiceException("DATA_NOT_FOUND");
+		}
+
+		}
+}

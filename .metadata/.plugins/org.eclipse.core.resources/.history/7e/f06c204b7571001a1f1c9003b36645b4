@@ -1,0 +1,40 @@
+package com.tupple.institute.exception;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
+import org.springframework.core.env.Environment;
+import org.springframework.web.bind.annotation.ControllerAdvice;
+
+@ControllerAdvice
+@Configuration
+@PropertySource("classpath:errorMessage.properties")
+public class AppExceptionHandler {
+
+	@Autowired
+	private Environment evn;
+	
+	@ExceptionHandler(value = ServiceException.class)
+	public ResponseEntitiy <CommonResponse> serviceException(ServiceException exception){
+String errorString = env.getProperty(exception.getCode());
+		
+		String[] errorArray = errorString.split("\\|");
+		
+		CommonResponse response = new CommonResponse();
+		
+		if(null != errorArray && errorArray.length == 3) {
+			String statusCode = errorArray[0];
+			String errorCode = errorArray[1];
+			String errorMessage = errorArray[2];
+			
+			response.setErrorCode(errorCode);
+			response.setErrorMessage(errorMessage);
+			return new ResponseEntity <> (response, HttpStatus.valueOf(Integer.parseInt(statusCode)));
+		}else {
+		
+		return new ResponseEntity <> (response, HttpStatus.BAD_REQUEST);
+	}
+	
+		
+}
+	

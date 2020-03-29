@@ -1,0 +1,5 @@
+package com.tupple.institute.exception;
+
+public class ServiceException {
+
+}

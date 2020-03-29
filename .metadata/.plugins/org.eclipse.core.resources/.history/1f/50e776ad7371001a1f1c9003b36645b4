@@ -1,0 +1,52 @@
+package com.tupple.institute.controller;
+
+import java.util.List;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class StudentController {
+	
+	private static final Logger LOGGER = LoggerFactory.getLogger(StudentController.class);
+	
+	@Value("${student.application.switch}")
+	boolean applicationSwitch;
+	
+	@Value("${student.application.namw}")
+	String applicationName;
+	
+	@Value("#{student.application.application.studentIds}.split(',')}")
+	List <Integer> studentIdList;
+	
+	@RequestMapping("/studentData")
+	public String studentData() {
+		System.out.println("I`m in StudentData...........");
+		http;
+		
+		LOGGER.error("I`m in studentData.......");
+		
+		if(applicationSwitch) {
+			return "Greetings Students!! From:" + applicationName + studentIdList.get(1);
+		}else {
+			return "Greetings Guests!! from:" +applicationName + studentIdList.get(1);
+		}
+	}
+	
+	@RequestMapping(value="/studentList", method = RequestMethod.GET)
+	public ResponseEntity<GetStudentListResponse> studentList(){
+		GetStudentListResponse response = new GetStudentListResposne();
+		
+		if(null!=response.getStudentList()&& !response.getStudentList().isEmpty()) {
+			return new ResponseEntity <> (response, HttpStatus.OK);
+		}else {
+			throw new ServiceException("DATA_NOT_FOUND";)
+		}
+	}
+	
+	@RequestMapping()
+}
