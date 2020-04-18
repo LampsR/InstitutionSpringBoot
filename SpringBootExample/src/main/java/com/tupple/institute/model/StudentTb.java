@@ -1,21 +1,38 @@
 package com.tupple.institute.model;
 
-public class Person {
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
+@Entity
+public class StudentTb {
+	
+	public StudentTb() {};
+	@Id
+	
+	//@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int studentId;
 
-	String firstName;
-	String lastName;
-	String address;
-	String city;
-	String state;
-	boolean hasLaptop;
-	String classId;
-
+	private String firstName;
+	private String lastName;
+	
+	private String address;
+	private int zipCode;
+	private boolean hasLaptop;
+	private String classId;
+	
 	public String getClassId() {
 		return classId;
 	}
 	public void setClassId(String classId) {
 		this.classId = classId;
+	}
+	public int getStudentId() {
+		return studentId;
+	}
+	public void setStudentId(int studentId) {
+		this.studentId = studentId;
 	}
 	public String getFirstName() {
 		return firstName;
@@ -23,7 +40,6 @@ public class Person {
 	public void setFirstName(String firstName) {
 		this.firstName = firstName;
 	}
-
 	public String getLastName() {
 		return lastName;
 	}
@@ -36,25 +52,18 @@ public class Person {
 	public void setAddress(String address) {
 		this.address = address;
 	}
-	public String getCity() {
-		return city;
+	public int getZipCode() {
+		return zipCode;
 	}
-	public void setCity(String city) {
-		this.city = city;
+	public void setZipCode(int zipCode) {
+		this.zipCode = zipCode;
 	}
-	public String getState() {
-		return state;
-	}
-	public void setState(String state) {
-		this.state = state;
-	}
-
 	public boolean isHasLaptop() {
 		return hasLaptop;
 	}
 	public void setHasLaptop(boolean hasLaptop) {
 		this.hasLaptop = hasLaptop;
 	}
-
+	
 
 }

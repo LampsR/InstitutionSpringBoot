@@ -28,12 +28,19 @@
     <fullyQualifiedTypeName name="org.springframework.boot.web.client.RestTemplateBuilder"/>
     <fullyQualifiedTypeName name="com.tupple.institute.rest.client.StudentEmpClient"/>
     <fullyQualifiedTypeName name="org.springframework.stereotype.Service"/>
-    <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
     <fullyQualifiedTypeName name="com.tupple.institute.data.ClassroomDataSource"/>
     <fullyQualifiedTypeName name="com.tupple.institute.model.GetClassroomByIdResponse"/>
     <fullyQualifiedTypeName name="java.util.Optional"/>
     <fullyQualifiedTypeName name="com.tupple.institute.model.Classroom"/>
-    <fullyQualifiedTypeName name="java.util.List"/>
     <fullyQualifiedTypeName name="com.tupple.institute.rest.model.Student"/>
     <fullyQualifiedTypeName name="com.tupple.institute.services.ClassroomService"/>
+    <fullyQualifiedTypeName name="javax.persistence.Entity"/>
+    <fullyQualifiedTypeName name="javax.persistence.Id"/>
+    <fullyQualifiedTypeName name="javax.persistence.GeneratedValue"/>
+    <fullyQualifiedTypeName name="javax.persistence.GenerationType"/>
+    <fullyQualifiedTypeName name="org.springframework.data.repository.CrudRepository"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
+    <fullyQualifiedTypeName name="com.tupple.institute.data.repoInterface.StudentRepository"/>
+    <fullyQualifiedTypeName name="com.tupple.institute.model.StudentTb"/>
 </qualifiedTypeNameHistroy>
